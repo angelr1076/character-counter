@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>key press count validation form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body>
+
+            <!-- Write a script to limit the # of characters that can be typed into a <textarea> element. Given the following html: 
+                    <div id='remaining-characters'>250 characters remaining</div>
+                    <textarea></textarea>
+                    
+                    Write a script that adds an 'onkeydown' event handler to the textarea 
+                    https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
+                    
+                    After every key press, subtract one from the characters remaining and update the message above the text box. Once the remaining characters is 0, show an alert that says 'Maximum characters have been reached!'
+                    
+                    
+                    Bonus:
+                    By passing the letter e into the anonymous function assigned to the onkeydown attribute, we can stop further typing by calling e.preventDefault(); within the function.
+                    e.g.
+                    document.getElementById('input').onkeydown = function (e) {
+                        e.preventDefault();
+                    }
+                    When we reach 0 characters, (characters remaining <= 0) then call e.preventDefault() to prevent further typing. Instead of saying the maximum characters have been reached in an alert, change the remaining-characters div text on top of the textarea element. -->  
+
+                    <div id="header">250 characters remaining</div>
+                    <textarea id="textarea" onkeydown="keyDown()"></textarea>
+
+        <script>
+                    var textArea = document.getElementById("textarea");
+                    var charEntered = document.getElementById("header");
+                    
+                    function keyDown(e) {
+                            var length = textArea.value.length;
+                            document.getElementById("header").innerText = (250 - length) + " characters remaining";
+
+                            if (length >= 250) {
+                                event.preventDefault();
+                                document.getElementById("header").innerText = "Maximum characters have been reached";
+                            }
+                    }
+                
+
+                    // event.preventDefault(); prevents user from typing
+        </script>
+    </body>
+</html>

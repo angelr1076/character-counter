@@ -30,22 +30,6 @@
                     <div id="header">250 characters remaining</div>
                     <textarea id="textarea" onkeydown="keyDown()"></textarea>
 
-        <script>
-                    var textArea = document.getElementById("textarea");
-                    var charEntered = document.getElementById("header");
-                    
-                    function keyDown(e) {
-                            var length = textArea.value.length;
-                            document.getElementById("header").innerText = (250 - length) + " characters remaining";
-
-                            if (length >= 250) {
-                                event.preventDefault();
-                                document.getElementById("header").innerText = "Maximum characters have been reached";
-                            }
-                    }
-                
-
-                    // event.preventDefault(); prevents user from typing
-        </script>
+<script src="main.js"></script>
     </body>
 </html>
